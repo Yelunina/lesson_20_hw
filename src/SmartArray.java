@@ -2,47 +2,54 @@ import java.util.Arrays;
 
 public class SmartArray {
     private int size = 0;
-    private int[] arr = new int[4];
-
+    private int[] array = new int[5];
 
     public void add(int element) {
-        if (size >= arr.length) {
+        if (size >= array.length) {
             increaseArray();
         }
-
-        arr[size] = element;
+        array[size] = element;
         size++;
     }
 
+
     private void increaseArray() {
-        int[] tempArray = new int[arr.length * 2];
-        for (int i = 0; i < arr.length; i++) {
-            tempArray[i] = arr[i];
+        int[] temparray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            temparray[i] = array[i];
         }
-        arr = tempArray;
+        array = temparray;
     }
 
-    public String specialToString() {
-        return Arrays.toString(arr) + "   size: " + size;
+    public String spesialToString() {
+        return Arrays.toString(array) + "   size:" + size;
     }
 
     public int[] getArray() {
-        int[] tempArray = new int[size];
-        for (int i = 0; i < size; i++) {
-            tempArray[i] = arr[i];
+        int[] temparray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            temparray[i] = array[i];
         }
-        return tempArray;
+        return temparray;
     }
 
     public String toString() {
         String res = "[";
         for (int i = 0; i < size; i++) {
-            res += " " + arr[i];
+            res += " " + array[i];
         }
         res += "]";
         return res;
     }
 
+    public void remove(int index) {
+        if (index > 0 && index < size) {
+            for (int i = index + 1; i < size; i++) {
+                array[i - 1] = array[i];
+            }
+            size--;
+        }
+
+    }
 
 }
-
