@@ -43,7 +43,7 @@ public class SmartArray {
     }
 
     public void remove(int index) {
-        if (index > 0 && index < size) {
+        if (index >= 0 && index < size) {
             for (int i = index + 1; i < size; i++) {
                 array[i - 1] = array[i];
             }
